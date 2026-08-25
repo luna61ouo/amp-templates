@@ -38,7 +38,7 @@
         "UpdateSource": "GithubRelease",
         "UpdateSourceData": "Server-beta.zip",
         "UpdateSourceArgs": "rwmt/Multiplayer",
-        "UpdateSourceTarget": "{{$FullBaseDir}}_dl",
+        "UpdateSourceTarget": "{{$FullBaseDir}}",
         "UpdateSourceVersion": "{{ReleaseVersion}}",
         "UnzipUpdateSource": true,
         "OverwriteExistingFiles": true,
@@ -50,7 +50,7 @@
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "Executable",
         "UpdateSourceData": "/bin/bash",
-        "UpdateSourceArgs": "-c \"cd \\\"{{$FullBaseDir}}\\\" && cp -a _dl/Server/Linux/. . && rm -rf _dl && chmod +x Server Server.sh 2>/dev/null; echo 'Server files placed'\"",
+        "UpdateSourceArgs": "-c \"cd \\\"{{$FullBaseDir}}\\\" && cp -a Server/Linux/. . && rm -rf Server && chmod +x Server.sh 2>/dev/null; ls -1 | head -20; echo 'Server files placed'\"",
         "SkipOnFailure": false
     },
     {
@@ -58,7 +58,7 @@
         "UpdateSourcePlatform": "Windows",
         "UpdateSource": "Executable",
         "UpdateSourceData": "powershell.exe",
-        "UpdateSourceArgs": "-NoProfile -Command \"Set-Location -Path '{{$FullBaseDir}}'; Copy-Item -Path '_dl/Server/Windows/*' -Destination '.' -Recurse -Force; Remove-Item -Path '_dl' -Recurse -Force; Write-Output 'Server files placed'\"",
+        "UpdateSourceArgs": "-NoProfile -Command \"Set-Location -Path '{{$FullBaseDir}}'; Copy-Item -Path 'Server/Windows/*' -Destination '.' -Recurse -Force; Remove-Item -Path 'Server' -Recurse -Force; Write-Output 'Server files placed'\"",
         "SkipOnFailure": false
     }
 ]
