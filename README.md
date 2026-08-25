@@ -68,9 +68,11 @@ the *same* build.
 
 ## Configurable settings
 
-Server name, max players, password, multifaction, async time, autosave interval/unit,
-pause-on-join, mod config syncing, desync traces, plus the release/runtime versions used
-during installation.
+Release version and .NET runtime version (used during installation).
+
+**Server settings (multifaction, async time, max players, password, autosave…) are NOT exposed
+in the AMP panel** — AMP cannot parse TOML. Edit `settings.toml` directly through AMP's File
+Manager instead. The file is generated automatically the first time a client completes setup.
 
 ## Known risks
 
@@ -78,7 +80,7 @@ during installation.
 |---|---|---|
 | 1 | `UseLinuxIOREDIR=False` may not actually provide a pty | Wrap in `script` (see above) |
 | 2 | `settings.toml` stores `directAddress = "ip:port"` as a **combined string**, which AMP's separate port/IP fields cannot map onto. The port is currently fixed at 30502 | Add a pre-start stage that rewrites `directAddress` with the AMP-assigned port |
-| 3 | AMP's support for `ConfigType: toml` is unconfirmed | Drop `metaconfig.json`; the bootstrap flow generates `settings.toml` on its own anyway |
+| 3 | ~~AMP's support for `ConfigType: toml`~~ **CONFIRMED UNSUPPORTED** — 0 of 240 official templates use `toml` (ini: 58, json: 36, xml: 10), and AMP returns *"No meta configuration manifest data is available"*. Config takeover has been removed | Edit `settings.toml` directly via AMP's File Manager. The bootstrap flow generates it on first run |
 
 ## Credits
 
