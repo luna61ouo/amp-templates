@@ -33,6 +33,14 @@
         "SkipOnFailure": false
     },
     {
+        "UpdateStageName": "Clean Stale Server Binary",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"cd \\\"{{$FullBaseDir}}\\\" && rm -rf _extract && if [[ -f Server ]]; then rm -f Server && echo 'Removed stale Server binary'; fi; exit 0\"",
+        "SkipOnFailure": false
+    },
+    {
         "UpdateStageName": "Multiplayer Server Download",
         "UpdateSourcePlatform": "All",
         "UpdateSource": "GithubRelease",
@@ -50,7 +58,7 @@
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "Executable",
         "UpdateSourceData": "/bin/bash",
-        "UpdateSourceArgs": "-c \"cd \\\"{{$FullBaseDir}}\\\" && cp -a Server/Linux/. . && rm -rf Server && chmod +x Server.sh 2>/dev/null; ls -1 | head -20; echo 'Server files placed'\"",
+        "UpdateSourceArgs": "-c \"set -e; cd \\\"{{$FullBaseDir}}\\\"; rm -rf _extract; mv Server _extract; cp -a _extract/Linux/. .; rm -rf _extract; chmod +x Server Server.sh; ls -1; echo 'Server files placed'\"",
         "SkipOnFailure": false
     },
     {
@@ -58,7 +66,7 @@
         "UpdateSourcePlatform": "Windows",
         "UpdateSource": "Executable",
         "UpdateSourceData": "powershell.exe",
-        "UpdateSourceArgs": "-NoProfile -Command \"Set-Location -Path '{{$FullBaseDir}}'; Copy-Item -Path 'Server/Windows/*' -Destination '.' -Recurse -Force; Remove-Item -Path 'Server' -Recurse -Force; Write-Output 'Server files placed'\"",
+        "UpdateSourceArgs": "-NoProfile -Command \"$ErrorActionPreference='Stop'; Set-Location -Path '{{$FullBaseDir}}'; Copy-Item -Path 'Server/Windows/*' -Destination '.' -Recurse -Force; Remove-Item -Path 'Server' -Recurse -Force; Write-Output 'Server files placed'\"",
         "SkipOnFailure": false
     }
 ]
