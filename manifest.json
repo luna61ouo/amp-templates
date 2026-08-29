@@ -1,12 +1,11 @@
 {
  "id": "26667036-0f5e-4066-8e2f-5a8039fe11db",
  "authors": [
-  "Luke",
   "Luna"
  ],
  "origin": "https://github.com/luna61ouo/amp-templates.git",
  "url": "https://github.com/luna61ouo/amp-templates",
  "imagefile": "",
- "prefix": "Luna",
+ "prefix": "",
  "repotype": "AppTemplates"
 }

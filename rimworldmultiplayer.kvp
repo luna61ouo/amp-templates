@@ -1,9 +1,9 @@
 Meta.DisplayName=RimWorld Multiplayer (Zetrith) Server
 Meta.Description=Zetrith's Multiplayer mod for RimWorld - standalone dedicated server
-Meta.OS=Windows, Linux
-Meta.AarchSupport=Native
-Meta.Arch=All
-Meta.Author=Luke / Luna
+Meta.OS=Linux
+Meta.AarchSupport=Unknown
+Meta.Arch=x86_64
+Meta.Author=Luna
 Meta.URL=https://github.com/rwmt/Multiplayer
 Meta.DisplayImageSource=steam:294100
 Meta.EndpointURIFormat=
