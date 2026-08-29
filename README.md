@@ -3,8 +3,14 @@
 An [AMP](https://cubecoders.com/AMP) Generic Module template for the **standalone dedicated server**
 shipped with [Zetrith's Multiplayer mod](https://github.com/rwmt/Multiplayer) for RimWorld.
 
-> **Status: untested pre-release.** The template is complete and syntax-valid, but has not yet been
-> verified end-to-end on a live AMP instance. See [Known risks](#known-risks) before using it.
+> **Credit.** The mod and the dedicated server are the work of **Zetrith** and the
+> [rwmt/Multiplayer](https://github.com/rwmt/Multiplayer) contributors. Nothing in this repository is
+> their code — this is only an AMP template that downloads and runs their release. All credit for the
+> server itself belongs to them; please report server bugs to their tracker, not here.
+
+> **Status: verified on a live AMP instance (2026-08-29).** Install, start, ready-state detection,
+> player count, graceful stop and re-running the installer have all been exercised on Linux x86_64.
+> Windows and arm64 are untested and not declared. See [Known risks](#known-risks).
 
 ## What this gives you
 
