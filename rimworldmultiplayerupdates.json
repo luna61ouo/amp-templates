@@ -37,7 +37,7 @@
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "Executable",
         "UpdateSourceData": "/bin/bash",
-        "UpdateSourceArgs": "-c \"cd \\\"{{$FullBaseDir}}\\\" && rm -rf _extract && if [[ -f Server ]]; then rm -f Server && echo 'Removed stale Server binary'; fi; exit 0\"",
+        "UpdateSourceArgs": "-c \"cd \\\"{{$FullBaseDir}}\\\" && rm -rf _extract && if [[ -f Server ]]; then rm -f Server && echo 'Removed stale Server launcher'; fi; rm -f Server.bin; exit 0\"",
         "SkipOnFailure": false
     },
     {
@@ -58,7 +58,7 @@
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "Executable",
         "UpdateSourceData": "/bin/bash",
-        "UpdateSourceArgs": "-c \"set -e; cd \\\"{{$FullBaseDir}}\\\"; rm -rf _extract; mv Server _extract; cp -a _extract/Linux/. .; rm -rf _extract; chmod +x Server Server.sh; ls -1; echo 'Server files placed'\"",
+        "UpdateSourceArgs": "-c \"set -e; cd \\\"{{$FullBaseDir}}\\\"; rm -rf _extract; mv Server _extract; cp -a _extract/Linux/. .; rm -rf _extract; mv Server Server.bin; echo '#!/bin/bash' > Server; echo '# The server polls Console.KeyAvailable and exits unless stdin is a real TTY.' >> Server; echo '# AMP does not provide one, so wrap it in script(1) to get a pty.' >> Server; echo 'cd \\\"$(dirname \\\"$0\\\")\\\"' >> Server; echo 'exec /usr/bin/script -qec ./Server.bin /dev/null' >> Server; chmod +x Server Server.bin; ls -1; echo 'Server files placed'\"",
         "SkipOnFailure": false
     },
     {
